@@ -1,0 +1,33 @@
+name: Local - Success
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - dist/**
+      - action.yml
+      - package.json
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Lighthouse-CI
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Audit with Lighthouse
+        id: lighthouse
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+              https://www.google.com/
+              https://example.com/
+          uploadArtifacts: true
+      - name: Display Report
+        uses: ./
+        with:
+          results_path: ${{ steps.lighthouse.outputs.resultsPath }}
+          lighthouse_outcome: ${{ steps.lighthouse.outcome }}
