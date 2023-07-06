@@ -11,7 +11,7 @@ on:
       - package.json
 
 jobs:
-  hello_world_job:
+  lighthouse:
     runs-on: ubuntu-latest
     name: Lighthouse-CI
     steps:
@@ -26,8 +26,8 @@ jobs:
               https://www.google.com/
               https://example.com/
           uploadArtifacts: true
-      - name: Display Report
+      - name: Display Reports
         uses: ./
         with:
-          results_path: ${{ steps.lighthouse.outputs.resultsPath }}
-          lighthouse_outcome: ${{ steps.lighthouse.outcome }}
+          resultsPath: ${{ steps.lighthouse.outputs.resultsPath }}
+          lighthouseOutcome: ${{ steps.lighthouse.outcome }}

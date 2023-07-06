@@ -1,11 +1,11 @@
 name: 'Lighthouse Viewer Action'
 description: 'Greet someone and record the time'
 inputs:
-  results_path:
+  resultsPath:
     description: 'Results path of Lighthouse-CI action.'
     required: true
     default: ''
-  lighthouse_outcome:
+  lighthouseOutcome:
     description: 'The outcome of Lighthouse-CI action. Set `continue-on-error` for Lighthouse-CI action and pass the outcome here to display Lighthouse report if assertion failed.'
     required: false
     default: 'success'
