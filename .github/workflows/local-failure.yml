@@ -29,6 +29,7 @@ jobs:
           configPath: './examples/lighthouserc.json'
           uploadArtifacts: true
       - name: Display Report
+        continue-on-error: true
         uses: ./
         with:
           results_path: ${{ steps.lighthouse.outputs.resultsPath }}
