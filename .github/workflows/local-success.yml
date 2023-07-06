@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - dist/**
+      - dist/**.js
       - action.yml
       - package.json
 
