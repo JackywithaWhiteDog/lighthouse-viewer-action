@@ -32,8 +32,7 @@ const getColor = (score) => {
 };
 
 const main = async () => {
-    // const results_path = core.getInput('results_path');
-    const results_path = 'test'
+    const results_path = core.getInput('results_path');
     const filenames = await glob(`${results_path}/lhr-*.json`)
 
     filenames.forEach((filename, i) => {
