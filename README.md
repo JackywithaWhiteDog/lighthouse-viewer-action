@@ -6,6 +6,8 @@
 
 This action is inspired by the [issue of Lighthouse CI Action](https://github.com/treosh/lighthouse-ci-action/issues/2). Make it easier to view the reports from Lighthouse auditing in Command Line Interface. As a separate action, it can also display other reports that follow the same format of [Lighthouse CI Action results](https://github.com/treosh/lighthouse-ci-action#resultspath).
 
+<img width="598" alt="screenshot" src="https://github.com/JackywithaWhiteDog/lighthouse-viewer-action/assets/45003637/bf792b88-f40f-41b0-ac72-3d66d1143de6">
+
 ## Table of Contents
 
 - [Usage](#usage)
