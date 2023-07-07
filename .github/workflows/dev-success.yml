@@ -1,4 +1,4 @@
-name: Local - Success
+name: Development - Success
 
 on:
   workflow_dispatch:
