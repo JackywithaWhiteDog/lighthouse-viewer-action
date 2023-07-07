@@ -13202,7 +13202,7 @@ const getColor = (score) => {
 };
 
 const main = async () => {
-    const results_path = core.getInput('results_path');
+    const results_path = core.getInput('resultsPath');
     const filenames = await glob(`${results_path}/lhr-*.json`)
 
     filenames.forEach((filename, i) => {
@@ -13280,7 +13280,7 @@ const main = async () => {
         console.log(ui.toString());
     })
 
-    const outcome = core.getInput('lighthouse_outcome');
+    const outcome = core.getInput('lighthouseOutcome');
     if (outcome == 'failure') throw Error('Failed in auditing with Lighthouse');
 }
 
