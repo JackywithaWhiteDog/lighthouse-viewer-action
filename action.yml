@@ -2,11 +2,11 @@ name: 'Lighthouse Viewer Action'
 description: 'Greet someone and record the time'
 inputs:
   resultsPath:
-    description: 'Results path of Lighthouse-CI action.'
+    description: 'Results path of Lighthouse CI Action. The action would take files that match the pattern `<resultsPath>/lhr-*.json` as the result files.'
     required: true
     default: ''
   lighthouseOutcome:
-    description: 'The outcome of Lighthouse-CI action. Set `continue-on-error` for Lighthouse-CI action and pass the outcome here to display Lighthouse report if assertion failed.'
+    description: 'The outcome of Lighthouse CI Action. Set `continue-on-error` for Lighthouse CI Action and pass the outcome here to delay the assertion failure after displaying Lighthouse reports.'
     required: false
     default: 'success'
 runs:
