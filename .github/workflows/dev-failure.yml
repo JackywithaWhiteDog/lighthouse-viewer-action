@@ -1,0 +1,36 @@
+name: Development - Failure
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - dist/**.js
+      - examples/lighthouserc.json
+      - action.yml
+      - package.json
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    name: Lighthouse-CI
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Audit with Lighthouse
+        id: lighthouse
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+              https://www.google.com/
+              https://example.com/
+          configPath: './examples/lighthouserc.json'
+          uploadArtifacts: true
+      - name: Display Reports
+        continue-on-error: true
+        uses: ./
+        with:
+          resultsPath: ${{ steps.lighthouse.outputs.resultsPath }}
+          lighthouseOutcome: ${{ steps.lighthouse.outcome }}

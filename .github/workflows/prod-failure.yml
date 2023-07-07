@@ -1,15 +1,9 @@
-name: Local - Failure
+name: Production - Failure
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - dist/**.js
-      - examples/lighthouserc.json
-      - action.yml
-      - package.json
+  release:
+    types: [published]
 
 jobs:
   lighthouse:
@@ -30,7 +24,7 @@ jobs:
           uploadArtifacts: true
       - name: Display Reports
         continue-on-error: true
-        uses: ./
+        uses: jackywithawhitedog/lighthouse-viewer-action@v1
         with:
           resultsPath: ${{ steps.lighthouse.outputs.resultsPath }}
           lighthouseOutcome: ${{ steps.lighthouse.outcome }}

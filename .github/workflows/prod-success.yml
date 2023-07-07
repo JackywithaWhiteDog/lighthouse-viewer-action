@@ -1,0 +1,28 @@
+name: Production - Success
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    name: Lighthouse-CI
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Audit with Lighthouse
+        id: lighthouse
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+              https://www.google.com/
+              https://example.com/
+          uploadArtifacts: true
+      - name: Display Reports
+        uses: jackywithawhitedog/lighthouse-viewer-action@v1
+        with:
+          resultsPath: ${{ steps.lighthouse.outputs.resultsPath }}
+          lighthouseOutcome: ${{ steps.lighthouse.outcome }}
