@@ -28,17 +28,17 @@ jobs:
     name: Lighthouse-CI
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Audit with Lighthouse
         id: lighthouse
         continue-on-error: true
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v11
         with:
           urls: |
               https://example.com/
           configPath: './lighthouserc.json'
       - name: Display Report
-        uses: jackywithawhitedog/lighthouse-viewer-action@v1
+        uses: jackywithawhitedog/lighthouse-viewer-action@v2
         with:
           resultsPath: ${{ steps.lighthouse.outputs.resultsPath }}
           lighthouseOutcome: ${{ steps.lighthouse.outcome }}
